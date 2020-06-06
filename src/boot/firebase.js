@@ -3,6 +3,8 @@ import * as firebase from "firebase/app"
 import "firebase/auth"
 import 'firebase/firestore'
 
+// git ignored
+
 // ADD YOUR FIREBASE CONFIG OBJECT HERE:
 const firebaseConfig = {
     apiKey: "AIzaSyBAd9OyT4kSRKc0chJbRa0PAOyHPQzaqgg",
