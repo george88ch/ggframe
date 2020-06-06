@@ -32,3 +32,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 src/boot/firebase copy.js
+
+# My files
+/src/boot/firebase.js

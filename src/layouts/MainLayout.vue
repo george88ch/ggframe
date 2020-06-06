@@ -41,12 +41,17 @@
 
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
-
-      <q-tabs align="left">
-        <q-route-tab to="/page1" label="Page One" />
-        <q-route-tab to="/page2" label="Page Two" />
-        <q-route-tab to="/page3" label="Page Three" />
-      </q-tabs>
+      <div class="row">
+        <q-tabs align="left">
+          <q-route-tab to="/page1" label="Page One" />
+          <q-route-tab to="/page2" label="Page Two" />
+          <q-route-tab to="/page3" label="Page Three" />
+        </q-tabs>
+        <q-space></q-space>
+        <p class="float-right q-mr-md q-mt-md">
+          Hallo, <b>{{ loggedInUser }}</b>
+        </p>
+      </div>
     </q-header>
 
     <q-drawer v-model="left" side="left" bordered>
@@ -72,13 +77,19 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
       left: false,
-      right: false,
-      loggedIn: false
+      right: false
     };
+  },
+  computed: {
+    ...mapState("auth", ["loggedIn", "loggedInUser", "loggedInUserId"])
+  },
+  methods: {
+    ...mapActions("auth", ["logoutUser"])
   }
 };
 </script>

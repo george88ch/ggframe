@@ -46,10 +46,10 @@ const actions = {
         firebaseAuth.signOut()
     },
     handleAuthStateChange({ commit, dispatch }) {
+        console.log("authState change: ")
         firebaseAuth.onAuthStateChanged(user => {
             Loading.hide()
             if (user) {
-                // console.log("user: ", )
                 commit('setLoggedIn', true)
                 commit('setLoggedInUser', user.email)
                 commit('setLoggedInUserId', user.uid)
@@ -63,7 +63,7 @@ const actions = {
                 commit('setLoggedIn', false)
                 commit('setLoggedInUser', 'unbekannter')
                 LocalStorage.set('loggedIn', false)
-                this.$router.replace('/home')
+                this.$router.replace('/')
             }
         })
     }

@@ -71,6 +71,7 @@ export default {
       this.$refs.password.validate();
       if (!this.$refs.email.hasError && !this.$refs.password.hasError) {
         if (this.tab == "login") {
+          console.log("login");
           this.loginUser(this.formData);
         } else {
           this.registerUser(this.formData);
